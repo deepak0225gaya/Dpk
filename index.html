@@ -185,36 +185,78 @@ header p{
 <body>
 
 <header>
+
 <h1>🛒 Grocery Shop</h1>
+
 <p>Aapki daily grocery, ab aasani se online</p>
 
 <input
-  class="search"
-  id="search"
-  placeholder="🔎 Product search karein..."
-  oninput="searchProducts()"
+class="search"
+id="search"
+placeholder="🔎 Product search karein..."
+oninput="searchProducts()"
 >
+
 </header>
+
 
 <div class="container">
 
 <div class="hero">
+
 <h2>🏠 Ghar baithe grocery order karein</h2>
+
 <p>Product select kijiye aur WhatsApp par order bhejiye.</p>
+
 </div>
+
 
 <h2>Categories</h2>
 
 <div class="categories">
-<div class="cat active" onclick="filterCategory('All',this)">All</div>
-<div class="cat" onclick="filterCategory('Anaaj',this)">🌾 Anaaj</div>
-<div class="cat" onclick="filterCategory('Dal',this)">🥣 Dal</div>
-<div class="cat" onclick="filterCategory('Masala',this)">🌶️ Masala</div>
-<div class="cat" onclick="filterCategory('Oil',this)">🛢️ Oil</div>
-<div class="cat" onclick="filterCategory('Snacks',this)">🍪 Snacks</div>
-<div class="cat" onclick="filterCategory('Home',this)">🧹 Home</div>
-<div class="cat" onclick="filterCategory('Personal',this)">🧴 Personal</div>
+
+<div class="cat active"
+onclick="filterCategory('All',this)">
+All
 </div>
+
+<div class="cat"
+onclick="filterCategory('Anaaj',this)">
+🌾 Anaaj
+</div>
+
+<div class="cat"
+onclick="filterCategory('Dal',this)">
+🥣 Dal
+</div>
+
+<div class="cat"
+onclick="filterCategory('Masala',this)">
+🌶️ Masala
+</div>
+
+<div class="cat"
+onclick="filterCategory('Oil',this)">
+🛢️ Oil
+</div>
+
+<div class="cat"
+onclick="filterCategory('Snacks',this)">
+🍪 Snacks
+</div>
+
+<div class="cat"
+onclick="filterCategory('Home',this)">
+🧹 Home
+</div>
+
+<div class="cat"
+onclick="filterCategory('Personal',this)">
+🧴 Personal
+</div>
+
+</div>
+
 
 <h2>🛍️ Products</h2>
 
@@ -226,9 +268,17 @@ header p{
 
 </div>
 
+
 <div class="cart" onclick="order()">
-🛒 Cart: <span id="count">0</span> item
-<div class="total">Total: ₹<span id="total">0</span> — WhatsApp Order</div>
+
+🛒 Cart:
+<span id="count">0</span> item
+
+<div class="total">
+Total: ₹<span id="total">0</span>
+— WhatsApp Order
+</div>
+
 </div>
 
 
@@ -240,46 +290,29 @@ const products = [
 {name:"चावल 5kg",price:190,cat:"Anaaj",icon:"🍚"},
 
 {name:"दाल अरहर 1kg",price:130,cat:"Dal",icon:"🥣"},
+{name:"चीनी 1kg",price:60,cat:"Anaaj",icon:"🍚"},
+{name:"Tata Salt 1kg",price:30,cat:"Anaaj",icon:"🧂"},
+{name:"Fortune Oil 1L",price:190,cat:"Oil",icon:"🛢️"},
+{name:"सरसों तेल 1L",price:220,cat:"Oil",icon:"🛢️"},
+{name:"नमक 1kg",price:10,cat:"Anaaj",icon:"🧂"},
+{name:"बेसन 1kg",price:100,cat:"Anaaj",icon:"🌾"},
+{name:"सूजी 1kg",price:48,cat:"Anaaj",icon:"🌾"},
+{name:"मैदा 1kg",price:40,cat:"Anaaj",icon:"🌾"},
+
 {name:"चना दाल 1kg",price:100,cat:"Dal",icon:"🥣"},
 {name:"मसूर दाल 1kg",price:88,cat:"Dal",icon:"🥣"},
 {name:"मूंग दाल 1kg",price:110,cat:"Dal",icon:"🥣"},
 {name:"उड़द दाल 1kg",price:160,cat:"Dal",icon:"🥣"},
+{name:"पोहा 1kg",price:48,cat:"Anaaj",icon:"🍚"},
 {name:"मटर 1kg",price:60,cat:"Dal",icon:"🟢"},
 {name:"चना 1kg",price:80,cat:"Dal",icon:"🫘"},
-
-{name:"चीनी 1kg",price:60,cat:"Anaaj",icon:"🍚"},
-{name:"Tata Salt 1kg",price:30,cat:"Anaaj",icon:"🧂"},
-{name:"नमक 1kg",price:10,cat:"Anaaj",icon:"🧂"},
-
-{name:"Fortune Oil 1L",price:190,cat:"Oil",icon:"🛢️"},
-{name:"सरसों तेल 1L",price:220,cat:"Oil",icon:"🛢️"},
-
-{name:"बेसन 1kg",price:100,cat:"Anaaj",icon:"🌾"},
-{name:"सूजी 1kg",price:48,cat:"Anaaj",icon:"🌾"},
-{name:"मैदा 1kg",price:40,cat:"Anaaj",icon:"🌾"},
-{name:"पोहा 1kg",price:48,cat:"Anaaj",icon:"🍚"},
 
 {name:"हल्दी मसाला 100g",price:25,cat:"Masala",icon:"🌶️"},
 {name:"लाल मिर्च पाउडर 100g",price:30,cat:"Masala",icon:"🌶️"},
 {name:"धनिया पाउडर 100g",price:22,cat:"Masala",icon:"🌿"},
 {name:"गरम मसाला 100g",price:60,cat:"Masala",icon:"🌶️"},
-{name:"हल्दी साबुत 250g",price:60,cat:"Masala",icon:"🌿"},
-{name:"जीरा 100g",price:50,cat:"Masala",icon:"🌿"},
-{name:"सौंफ 15g",price:5,cat:"Masala",icon:"🌿"},
-{name:"अजवाइन 15g",price:5,cat:"Masala",icon:"🌿"},
-{name:"हींग",price:10,cat:"Masala",icon:"🌿"},
-{name:"तेज पत्ता 5g",price:0,cat:"Masala",icon:"🍃"},
 
 {name:"चाय पत्ती 250g",price:80,cat:"Snacks",icon:"🍵"},
-{name:"नमकीन",price:50,cat:"Snacks",icon:"🥨"},
-{name:"चिप्स",price:60,cat:"Snacks",icon:"🍟"},
-{name:"टमाटर सॉस",price:15,cat:"Snacks",icon:"🍅"},
-{name:"नूडल्स",price:15,cat:"Snacks",icon:"🍜"},
-{name:"सोयाबीन बड़ी 250g",price:30,cat:"Snacks",icon:"🫘"},
-{name:"सूखा नारियल 100g",price:50,cat:"Snacks",icon:"🥥"},
-{name:"किशमिश 100g",price:50,cat:"Snacks",icon:"🍇"},
-{name:"काजू 100g",price:100,cat:"Snacks",icon:"🥜"},
-{name:"बादाम 100g",price:16,cat:"Snacks",icon:"🥜"},
 
 {name:"नहाने का साबुन",price:10,cat:"Personal",icon:"🧼"},
 {name:"कपड़े धोने का साबुन",price:10,cat:"Home",icon:"🧼"},
@@ -291,29 +324,53 @@ const products = [
 {name:"अगरबत्ती",price:20,cat:"Home",icon:"🪔"},
 {name:"मोमबत्ती",price:10,cat:"Home",icon:"🕯️"},
 {name:"बर्तन धोने वाला बार",price:40,cat:"Home",icon:"🧽"},
-{name:"हैंडवॉश",price:10,cat:"Personal",icon:"🧴"}
+{name:"हैंडवॉश",price:10,cat:"Personal",icon:"🧴"},
+
+{name:"नमकीन",price:50,cat:"Snacks",icon:"🥨"},
+{name:"चिप्स",price:60,cat:"Snacks",icon:"🍟"},
+{name:"टमाटर सॉस",price:15,cat:"Snacks",icon:"🍅"},
+{name:"नूडल्स",price:15,cat:"Snacks",icon:"🍜"},
+{name:"सोयाबीन बड़ी 250g",price:30,cat:"Snacks",icon:"🫘"},
+{name:"सूखा नारियल 100g",price:50,cat:"Snacks",icon:"🥥"},
+{name:"किशमिश 100g",price:50,cat:"Snacks",icon:"🍇"},
+{name:"काजू 100g",price:100,cat:"Snacks",icon:"🥜"},
+{name:"बादाम 100g",price:16,cat:"Snacks",icon:"🥜"},
+
+{name:"हल्दी साबुत 250g",price:60,cat:"Masala",icon:"🌿"},
+{name:"जीरा 100g",price:50,cat:"Masala",icon:"🌿"},
+{name:"सौंफ 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"अजवाइन 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"हींग",price:10,cat:"Masala",icon:"🌿"},
+{name:"तेज पत्ता 5g",price:0,cat:"Masala",icon:"🍃"}
 
 ];
+
 
 let cart = {};
 let currentCategory = "All";
 
+
 function showProducts(){
 
 const box = document.getElementById("products");
-const search = document.getElementById("search").value.toLowerCase();
+
+const search =
+document.getElementById("search").value.toLowerCase();
 
 box.innerHTML = "";
 
 let found = 0;
 
+
 products.forEach((p,index)=>{
 
 let matchCategory =
-currentCategory === "All" || p.cat === currentCategory;
+currentCategory === "All" ||
+p.cat === currentCategory;
 
 let matchSearch =
 p.name.toLowerCase().includes(search);
+
 
 if(matchCategory && matchSearch){
 
@@ -321,16 +378,21 @@ found++;
 
 let quantity = cart[index] || 0;
 
+
 box.innerHTML += `
 
 <div class="product">
 
-<div class="img">${p.icon}</div>
+<div class="img">
+${p.icon}
+</div>
 
-<h3>${p.name}</h3>
+<h3>
+${p.name}
+</h3>
 
 <div class="price">
-₹${p.price === 0 ? "Free" : p.price}
+${p.price === 0 ? "Free" : "₹" + p.price}
 </div>
 
 ${
@@ -338,7 +400,9 @@ quantity === 0
 
 ?
 
-`<button class="addbtn" onclick="add(${index})">
+`<button
+class="addbtn"
+onclick="add(${index})">
 ➕ Add
 </button>`
 
@@ -346,33 +410,44 @@ quantity === 0
 
 `<div class="qty">
 
-<button onclick="minus(${index})">−</button>
+<button onclick="minus(${index})">
+−
+</button>
 
-<span>${quantity}</span>
+<span>
+${quantity}
+</span>
 
-<button onclick="add(${index})">+</button>
+<button onclick="add(${index})">
++
+</button>
 
 </div>`
 
 }
 
 </div>
+
 `;
 
 }
 
 });
 
+
 document.getElementById("noresult").style.display =
 found === 0 ? "block" : "none";
+
 
 updateCart();
 
 }
 
+
 function add(index){
 
-if(!cart[index]) cart[index]=0;
+if(!cart[index])
+cart[index] = 0;
 
 cart[index]++;
 
@@ -380,9 +455,11 @@ showProducts();
 
 }
 
+
 function minus(index){
 
-if(cart[index]) cart[index]--;
+if(cart[index])
+cart[index]--;
 
 if(cart[index] <= 0)
 delete cart[index];
@@ -391,10 +468,12 @@ showProducts();
 
 }
 
+
 function updateCart(){
 
 let count = 0;
 let total = 0;
+
 
 Object.keys(cart).forEach(index=>{
 
@@ -402,21 +481,31 @@ let qty = cart[index];
 
 count += qty;
 
-total += products[index].price * qty;
+total +=
+products[index].price * qty;
 
 });
 
-document.getElementById("count").innerText = count;
-document.getElementById("total").innerText = total;
+
+document.getElementById("count").innerText =
+count;
+
+document.getElementById("total").innerText =
+total;
 
 }
+
 
 function filterCategory(category,element){
 
 currentCategory = category;
 
+
 document.querySelectorAll(".cat")
-.forEach(x=>x.classList.remove("active"));
+.forEach(x =>
+x.classList.remove("active")
+);
+
 
 element.classList.add("active");
 
@@ -424,17 +513,24 @@ showProducts();
 
 }
 
+
 function searchProducts(){
 
 showProducts();
 
 }
 
+
 function order(){
 
 let count = 0;
 let total = 0;
-let message = "🛒 *GROCERY ORDER*%0A%0A";
+let itemNo = 1;
+
+
+let message =
+"🛒 *GROCERY ORDER*%0A%0A";
+
 
 Object.keys(cart).forEach(index=>{
 
@@ -442,41 +538,65 @@ let qty = cart[index];
 
 let p = products[index];
 
-let itemTotal = p.price * qty;
+let itemTotal =
+p.price * qty;
+
 
 count += qty;
+
 total += itemTotal;
 
+
 message +=
-"• " + p.name +
-" × " + qty +
-" = ₹" + itemTotal +
+
+itemNo +
+". " +
+p.name +
+" × " +
+qty +
+" = ₹" +
+itemTotal +
 "%0A";
 
+
+itemNo++;
+
 });
+
 
 if(count === 0){
 
 alert("पहले कोई product select करें");
+
 return;
 
 }
 
-message +=
-"%0A━━━━━━━━━━━━%0A" +
-"🧾 *Total Items:* " + count +
-"%0A💰 *Total Amount:* ₹" + total;
 
-message += "%0A%0Aधन्यवाद 🙏";
+message +=
+
+"%0A━━━━━━━━━━━━%0A" +
+
+"🧾 *Total Items:* " +
+count +
+
+"%0A💰 *Total Amount:* ₹" +
+total +
+
+"%0A%0Aधन्यवाद 🙏";
+
 
 window.open(
-"https://wa.me/919852568955?text=" + message,
+
+"https://wa.me/919852568955?text=" +
+message,
+
 "_blank"
-);
 
 );
 
 }
+
 
 showProducts();
 
