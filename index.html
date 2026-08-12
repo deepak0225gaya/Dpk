@@ -13,7 +13,7 @@
     .search { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; margin-bottom: 15px; }
     .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
     .product { background: white; padding: 12px; border-radius: 12px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
-    .product img { width: 100%; height: 100px; object-fit: cover; border-radius: 8px; }
+    .product img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; }
     .product h3 { margin: 10px 0 5px; font-size: 15px; color: #333; }
     .price { font-size: 16px; font-weight: bold; color: #168b43; margin: 5px 0 10px; }
     button.add-btn { width: 100%; padding: 8px; border: none; background: #168b43; color: white; border-radius: 6px; font-weight: bold; cursor: pointer; }
@@ -33,9 +33,9 @@
     
     <div class="products" id="productList">
       
-      <!-- Products List Start -->
+      <!-- ANAJ & FLOUR -->
       <div class="product">
-        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300" alt="आटा 5kg">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300" alt="आटा 5kg">
         <h3>आटा 5kg</h3>
         <p class="price">₹180</p>
         <button class="add-btn" onclick="addToCart('आटा 5kg', 180)">Add</button>
@@ -49,6 +49,28 @@
       </div>
 
       <div class="product">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300" alt="सूजी 1kg">
+        <h3>सूजी 1kg</h3>
+        <p class="price">₹48</p>
+        <button class="add-btn" onclick="addToCart('सूजी 1kg', 48)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300" alt="मैदा 1kg">
+        <h3>मैदा 1kg</h3>
+        <p class="price">₹40</p>
+        <button class="add-btn" onclick="addToCart('मैदा 1kg', 40)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300" alt="पोहा 1kg">
+        <h3>पोहा 1kg</h3>
+        <p class="price">₹48</p>
+        <button class="add-btn" onclick="addToCart('पोहा 1kg', 48)">Add</button>
+      </div>
+
+      <!-- DALS & PULSES -->
+      <div class="product">
         <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300" alt="दाल अरहर 1kg">
         <h3>दाल अरहर 1kg</h3>
         <p class="price">₹130</p>
@@ -56,59 +78,10 @@
       </div>
 
       <div class="product">
-        <img src="https://images.unsplash.com/photo-1622484210800-410a8b9e6950?w=300" alt="चीनी 1kg">
-        <h3>चीनी 1kg</h3>
-        <p class="price">₹60</p>
-        <button class="add-btn" onclick="addToCart('चीनी 1kg', 60)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300" alt="Tata Salt 1kg">
-        <h3>Tata Salt 1kg</h3>
-        <p class="price">₹30</p>
-        <button class="add-btn" onclick="addToCart('Tata Salt 1kg', 30)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300" alt="Fortune Oil 1L">
-        <h3>Fortune Oil 1L</h3>
-        <p class="price">₹190</p>
-        <button class="add-btn" onclick="addToCart('Fortune Oil 1L', 190)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300" alt="सरसों तेल 1L">
-        <h3>सरसों तेल 1L</h3>
-        <p class="price">₹220</p>
-        <button class="add-btn" onclick="addToCart('सरसों तेल 1L', 220)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300" alt="नमक 1kg">
-        <h3>नमक 1kg</h3>
-        <p class="price">₹10</p>
-        <button class="add-btn" onclick="addToCart('नमक 1kg', 10)">Add</button>
-      </div>
-
-      <div class="product">
         <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300" alt="बेसन 1kg">
         <h3>बेसन 1kg</h3>
         <p class="price">₹100</p>
         <button class="add-btn" onclick="addToCart('बेसन 1kg', 100)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300" alt="सूजी 1kg">
-        <h3>सूजी 1kg</h3>
-        <p class="price">₹48</p>
-        <button class="add-btn" onclick="addToCart('सूजी 1kg', 48)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300" alt="मैदा 1kg">
-        <h3>मैदा 1kg</h3>
-        <p class="price">₹40</p>
-        <button class="add-btn" onclick="addToCart('मैदा 1kg', 40)">Add</button>
       </div>
 
       <div class="product">
@@ -140,13 +113,6 @@
       </div>
 
       <div class="product">
-        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300" alt="पोहा 1kg">
-        <h3>पोहा 1kg</h3>
-        <p class="price">₹48</p>
-        <button class="add-btn" onclick="addToCart('पोहा 1kg', 48)">Add</button>
-      </div>
-
-      <div class="product">
         <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300" alt="मटर 1kg">
         <h3>मटर 1kg</h3>
         <p class="price">₹60</p>
@@ -160,6 +126,50 @@
         <button class="add-btn" onclick="addToCart('चना 1kg', 80)">Add</button>
       </div>
 
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300" alt="सोयाबीन बड़ी 250g">
+        <h3>सोयाबीन बड़ी 250g</h3>
+        <p class="price">₹30</p>
+        <button class="add-btn" onclick="addToCart('सोयाबीन बड़ी 250g', 30)">Add</button>
+      </div>
+
+      <!-- OILS & SUGAR/SALT -->
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1622484210800-410a8b9e6950?w=300" alt="चीनी 1kg">
+        <h3>चीनी 1kg</h3>
+        <p class="price">₹60</p>
+        <button class="add-btn" onclick="addToCart('चीनी 1kg', 60)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300" alt="Tata Salt 1kg">
+        <h3>Tata Salt 1kg</h3>
+        <p class="price">₹30</p>
+        <button class="add-btn" onclick="addToCart('Tata Salt 1kg', 30)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300" alt="नमक 1kg">
+        <h3>नमक 1kg</h3>
+        <p class="price">₹10</p>
+        <button class="add-btn" onclick="addToCart('नमक 1kg', 10)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300" alt="Fortune Oil 1L">
+        <h3>Fortune Oil 1L</h3>
+        <p class="price">₹190</p>
+        <button class="add-btn" onclick="addToCart('Fortune Oil 1L', 190)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300" alt="सरसों तेल 1L">
+        <h3>सरसों तेल 1L</h3>
+        <p class="price">₹220</p>
+        <button class="add-btn" onclick="addToCart('सरसों तेल 1L', 220)">Add</button>
+      </div>
+
+      <!-- SPICES -->
       <div class="product">
         <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="हल्दी मसाला 100g">
         <h3>हल्दी मसाला 100g</h3>
@@ -189,12 +199,113 @@
       </div>
 
       <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="हल्दी साबुत 250g">
+        <h3>हल्दी साबुत 250g</h3>
+        <p class="price">₹60</p>
+        <button class="add-btn" onclick="addToCart('हल्दी साबुत 250g', 60)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="जीरा 100g">
+        <h3>जीरा 100g</h3>
+        <p class="price">₹50</p>
+        <button class="add-btn" onclick="addToCart('जीरा 100g', 50)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="सौंफ 15g">
+        <h3>सौंफ 15g</h3>
+        <p class="price">₹5</p>
+        <button class="add-btn" onclick="addToCart('सौंफ 15g', 5)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="अजवाइन 15g">
+        <h3>अजवाइन 15g</h3>
+        <p class="price">₹5</p>
+        <button class="add-btn" onclick="addToCart('अजवाइन 15g', 5)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="हींग">
+        <h3>हींग</h3>
+        <p class="price">₹10</p>
+        <button class="add-btn" onclick="addToCart('हींग', 10)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="तेज पत्ता 5g">
+        <h3>तेज पत्ता 5g</h3>
+        <p class="price">Free</p>
+        <button class="add-btn" onclick="addToCart('तेज पत्ता 5g', 0)">Add</button>
+      </div>
+
+      <!-- TEA & DRY FRUITS -->
+      <div class="product">
         <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300" alt="चाय पत्ती 250g">
         <h3>चाय पत्ती 250g</h3>
         <p class="price">₹80</p>
         <button class="add-btn" onclick="addToCart('चाय पत्ती 250g', 80)">Add</button>
       </div>
 
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300" alt="सूखा नारियल 100g">
+        <h3>सूखा नारियल 100g</h3>
+        <p class="price">₹50</p>
+        <button class="add-btn" onclick="addToCart('सूखा नारियल 100g', 50)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300" alt="किशमिश 100g">
+        <h3>किशमिश 100g</h3>
+        <p class="price">₹50</p>
+        <button class="add-btn" onclick="addToCart('किशमिश 100g', 50)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300" alt="काजू 100g">
+        <h3>काजू 100g</h3>
+        <p class="price">₹100</p>
+        <button class="add-btn" onclick="addToCart('काजू 100g', 100)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300" alt="बादाम 100g">
+        <h3>बादाम 100g</h3>
+        <p class="price">₹16</p>
+        <button class="add-btn" onclick="addToCart('बादाम 100g', 16)">Add</button>
+      </div>
+
+      <!-- SNACKS & PACKAGED FOOD -->
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300" alt="नमकीन">
+        <h3>नमकीन</h3>
+        <p class="price">₹50</p>
+        <button class="add-btn" onclick="addToCart('नमकीन', 50)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300" alt="चिप्स">
+        <h3>चिप्स</h3>
+        <p class="price">₹60</p>
+        <button class="add-btn" onclick="addToCart('चिप्स', 60)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300" alt="टमाटर सॉस">
+        <h3>टमाटर सॉस</h3>
+        <p class="price">₹15</p>
+        <button class="add-btn" onclick="addToCart('टमाटर सॉस', 15)">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300" alt="नूडल्स">
+        <h3>नूडल्स</h3>
+        <p class="price">₹15</p>
+        <button class="add-btn" onclick="addToCart('नूडल्स', 15)">Add</button>
+      </div>
+
+      <!-- PERSONAL CARE & CLEANING -->
       <div class="product">
         <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=300" alt="नहाने का साबुन">
         <h3>नहाने का साबुन</h3>
@@ -224,7 +335,7 @@
       </div>
 
       <div class="product">
-        <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300" alt="शैम्पू">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300" alt="शैम्पू">
         <h3>शैम्पू</h3>
         <p class="price">₹5</p>
         <button class="add-btn" onclick="addToCart('शैम्पू', 5)">Add</button>
@@ -272,112 +383,6 @@
         <button class="add-btn" onclick="addToCart('हैंडवॉश', 10)">Add</button>
       </div>
 
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300" alt="नमकीन">
-        <h3>नमकीन</h3>
-        <p class="price">₹50</p>
-        <button class="add-btn" onclick="addToCart('नमकीन', 50)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=300" alt="चिप्स">
-        <h3>चिप्स</h3>
-        <p class="price">₹60</p>
-        <button class="add-btn" onclick="addToCart('चिप्स', 60)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300" alt="टमाटर सॉस">
-        <h3>टमाटर सॉस</h3>
-        <p class="price">₹15</p>
-        <button class="add-btn" onclick="addToCart('टमाटर सॉस', 15)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300" alt="नूडल्स">
-        <h3>नूडल्स</h3>
-        <p class="price">₹15</p>
-        <button class="add-btn" onclick="addToCart('नूडल्स', 15)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=300" alt="सोयाबीन बड़ी 250g">
-        <h3>सोयाबीन बड़ी 250g</h3>
-        <p class="price">₹30</p>
-        <button class="add-btn" onclick="addToCart('सोयाबीन बड़ी 250g', 30)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="सूखा नारियल 100g">
-        <h3>सूखा नारियल 100g</h3>
-        <p class="price">₹50</p>
-        <button class="add-btn" onclick="addToCart('सूखा नारियल 100g', 50)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="किशमिश 100g">
-        <h3>किशमिश 100g</h3>
-        <p class="price">₹50</p>
-        <button class="add-btn" onclick="addToCart('किशमिश 100g', 50)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="काजू 100g">
-        <h3>काजू 100g</h3>
-        <p class="price">₹100</p>
-        <button class="add-btn" onclick="addToCart('काजू 100g', 100)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="बादाम 100g">
-        <h3>बादाम 100g</h3>
-        <p class="price">₹16</p>
-        <button class="add-btn" onclick="addToCart('बादाम 100g', 16)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="हल्दी साबुत 250g">
-        <h3>हल्दी साबुत 250g</h3>
-        <p class="price">₹60</p>
-        <button class="add-btn" onclick="addToCart('हल्दी साबुत 250g', 60)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="जीरा 100g">
-        <h3>जीरा 100g</h3>
-        <p class="price">₹50</p>
-        <button class="add-btn" onclick="addToCart('जीरा 100g', 50)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="सौंफ 15g">
-        <h3>सौंफ 15g</h3>
-        <p class="price">₹5</p>
-        <button class="add-btn" onclick="addToCart('सौंफ 15g', 5)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="अजवाइन 15g">
-        <h3>अजवाइन 15g</h3>
-        <p class="price">₹5</p>
-        <button class="add-btn" onclick="addToCart('अजवाइन 15g', 5)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="हींग">
-        <h3>हींग</h3>
-        <p class="price">₹10</p>
-        <button class="add-btn" onclick="addToCart('हींग', 10)">Add</button>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300" alt="तेज पत्ता 5g">
-        <h3>तेज पत्ता 5g</h3>
-        <p class="price">Free</p>
-        <button class="add-btn" onclick="addToCart('तेज पत्ता 5g', 0)">Add</button>
-      </div>
-      <!-- Products List End -->
-
     </div>
   </div>
 
@@ -393,7 +398,7 @@
     function addToCart(name, price) {
       cart.push({ name, price });
       document.getElementById('cartCount').innerText = cart.length;
-      alert(name + ' added to cart!');
+      alert(name + ' cart me add ho gaya!');
     }
 
     function searchProduct() {
@@ -416,8 +421,7 @@
         return;
       }
       
-      // Apne WhatsApp number se replace kar sakte ho (e.g., 919876543210)
-      let phoneNumber = "910000000000"; 
+      let phoneNumber = "910000000000"; // Yahan apna WhatsApp Number daalein
       let message = "Hello, mujhe ye items order karne hain:\n\n";
       let total = 0;
 
