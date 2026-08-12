@@ -4,24 +4,181 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grocery Shop</title>
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7f4;color:#172018}
-header{background:#168b43;color:white;padding:25px 20px}
-header h1{margin:0;font-size:34px}
-header p{font-size:18px}
-.search{width:100%;padding:16px;border:0;border-radius:30px;font-size:18px;box-sizing:border-box}
-.container{padding:20px}
-.hero{background:white;padding:25px;border-radius:25px;margin-bottom:25px}
-.hero h2{font-size:30px;margin-top:0}
-.categories{display:flex;gap:10px;overflow:auto;margin-bottom:25px}
-.cat{background:white;padding:15px 22px;border-radius:20px;white-space:nowrap}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.product{background:white;padding:15px;border-radius:20px;box-shadow:0 3px 12px #ddd}
-.product .img{height:120px;background:#eef8ef;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:55px}
-.product h3{margin-bottom:5px}
-.price{font-size:20px;font-weight:bold;color:#168b43}
-button{width:100%;padding:13px;border:0;border-radius:12px;background:#168b43;color:white;font-size:16px}
-.cart{position:fixed;bottom:15px;left:15px;right:15px;background:#101b13;color:white;padding:18px;border-radius:25px;text-align:center;font-size:18px;font-weight:bold}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7f4;
+  color:#172018;
+}
+
+header{
+  background:#168b43;
+  color:white;
+  padding:25px 20px;
+}
+
+header h1{
+  margin:0;
+  font-size:32px;
+}
+
+header p{
+  font-size:17px;
+}
+
+.search{
+  width:100%;
+  padding:15px 18px;
+  border:0;
+  border-radius:30px;
+  font-size:17px;
+  outline:none;
+}
+
+.container{
+  padding:20px;
+  padding-bottom:110px;
+}
+
+.hero{
+  background:white;
+  padding:22px;
+  border-radius:22px;
+  margin-bottom:25px;
+  box-shadow:0 3px 10px #ddd;
+}
+
+.hero h2{
+  margin-top:0;
+}
+
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  margin-bottom:25px;
+}
+
+.cat{
+  background:white;
+  padding:13px 20px;
+  border-radius:20px;
+  white-space:nowrap;
+  cursor:pointer;
+  box-shadow:0 2px 7px #ddd;
+}
+
+.cat.active{
+  background:#168b43;
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.product{
+  background:white;
+  padding:14px;
+  border-radius:20px;
+  box-shadow:0 3px 12px #ddd;
+}
+
+.product .img{
+  height:100px;
+  background:#eef8ef;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+}
+
+.product h3{
+  font-size:17px;
+  margin:12px 0 5px;
+  min-height:40px;
+}
+
+.price{
+  font-size:19px;
+  font-weight:bold;
+  color:#168b43;
+  margin-bottom:10px;
+}
+
+.addbtn{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:12px;
+  background:#168b43;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#eef8ef;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.qty button{
+  width:38px;
+  height:38px;
+  border:0;
+  background:#168b43;
+  color:white;
+  font-size:22px;
+}
+
+.qty span{
+  font-size:17px;
+  font-weight:bold;
+}
+
+.cart{
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  background:#101b13;
+  color:white;
+  padding:16px;
+  border-radius:22px;
+  text-align:center;
+  font-size:17px;
+  font-weight:bold;
+  z-index:10;
+  box-shadow:0 4px 15px #999;
+}
+
+.total{
+  color:#7cff9d;
+  margin-top:5px;
+}
+
+.noresult{
+  text-align:center;
+  padding:30px;
+  display:none;
+}
+
+@media(min-width:700px){
+  .products{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
 </style>
 </head>
 
@@ -30,79 +187,297 @@ button{width:100%;padding:13px;border:0;border-radius:12px;background:#168b43;co
 <header>
 <h1>🛒 Grocery Shop</h1>
 <p>Aapki daily grocery, ab aasani se online</p>
-<input class="search" placeholder="🔎 Product search karein...">
+
+<input
+  class="search"
+  id="search"
+  placeholder="🔎 Product search karein..."
+  oninput="searchProducts()"
+>
 </header>
 
 <div class="container">
 
 <div class="hero">
-<h2>Ghar baithe grocery order karein</h2>
-<p>Product select kijiye aur WhatsApp par bhejiye.</p>
+<h2>🏠 Ghar baithe grocery order karein</h2>
+<p>Product select kijiye aur WhatsApp par order bhejiye.</p>
 </div>
 
 <h2>Categories</h2>
+
 <div class="categories">
-<div class="cat">All</div>
-<div class="cat">🌾 Anaaj</div>
-<div class="cat">🥣 Dal</div>
-<div class="cat">🍪 Biscuit</div>
+<div class="cat active" onclick="filterCategory('All',this)">All</div>
+<div class="cat" onclick="filterCategory('Anaaj',this)">🌾 Anaaj</div>
+<div class="cat" onclick="filterCategory('Dal',this)">🥣 Dal</div>
+<div class="cat" onclick="filterCategory('Masala',this)">🌶️ Masala</div>
+<div class="cat" onclick="filterCategory('Oil',this)">🛢️ Oil</div>
+<div class="cat" onclick="filterCategory('Snacks',this)">🍪 Snacks</div>
+<div class="cat" onclick="filterCategory('Home',this)">🧹 Home</div>
+<div class="cat" onclick="filterCategory('Personal',this)">🧴 Personal</div>
 </div>
 
-<h2>Products</h2>
+<h2>🛍️ Products</h2>
 
-<div class="products">
+<div class="products" id="products"></div>
 
-<div class="product">
-<div class="img">🌾</div>
-<h3>My Farm Atta 5kg</h3>
-<div class="price">₹180</div>
-<br>
-<button onclick="add('My Farm Atta 5kg - ₹180')">Add</button>
-</div>
-
-<div class="product">
-<div class="img">🧂</div>
-<h3>Tata Salt 1kg</h3>
-<div class="price">₹30</div>
-<br>
-<button onclick="add('Tata Salt 1kg - ₹30')">Add</button>
-</div>
-
-<div class="product">
-<div class="img">🛢️</div>
-<h3>Fortune Oil 1L</h3>
-<div class="price">₹190</div>
-<br>
-<button onclick="add('Fortune Oil 1L - ₹190')">Add</button>
-</div>
-
-<div class="product">
-<div class="img">🛢️</div>
-<h3>Oil 1kg</h3>
-<div class="price">₹220</div>
-<br>
-<button onclick="add('Oil 1kg - ₹220')">Add</button>
+<div class="noresult" id="noresult">
+❌ Product नहीं मिला
 </div>
 
 </div>
+
+<div class="cart" onclick="order()">
+🛒 Cart: <span id="count">0</span> item
+<div class="total">Total: ₹<span id="total">0</span> — WhatsApp Order</div>
 </div>
 
-<div class="cart" onclick="order()">🛒 Cart: <span id="count">0</span> item — WhatsApp Order</div>
 
 <script>
-let cart=[];
-function add(product){
-cart.push(product);
-document.getElementById("count").innerText=cart.length;
+
+const products = [
+
+{name:"आटा 5kg",price:180,cat:"Anaaj",icon:"🌾"},
+{name:"चावल 5kg",price:190,cat:"Anaaj",icon:"🍚"},
+
+{name:"दाल अरहर 1kg",price:130,cat:"Dal",icon:"🥣"},
+{name:"चना दाल 1kg",price:100,cat:"Dal",icon:"🥣"},
+{name:"मसूर दाल 1kg",price:88,cat:"Dal",icon:"🥣"},
+{name:"मूंग दाल 1kg",price:110,cat:"Dal",icon:"🥣"},
+{name:"उड़द दाल 1kg",price:160,cat:"Dal",icon:"🥣"},
+{name:"मटर 1kg",price:60,cat:"Dal",icon:"🟢"},
+{name:"चना 1kg",price:80,cat:"Dal",icon:"🫘"},
+
+{name:"चीनी 1kg",price:60,cat:"Anaaj",icon:"🍚"},
+{name:"Tata Salt 1kg",price:30,cat:"Anaaj",icon:"🧂"},
+{name:"नमक 1kg",price:10,cat:"Anaaj",icon:"🧂"},
+
+{name:"Fortune Oil 1L",price:190,cat:"Oil",icon:"🛢️"},
+{name:"सरसों तेल 1L",price:220,cat:"Oil",icon:"🛢️"},
+
+{name:"बेसन 1kg",price:100,cat:"Anaaj",icon:"🌾"},
+{name:"सूजी 1kg",price:48,cat:"Anaaj",icon:"🌾"},
+{name:"मैदा 1kg",price:40,cat:"Anaaj",icon:"🌾"},
+{name:"पोहा 1kg",price:48,cat:"Anaaj",icon:"🍚"},
+
+{name:"हल्दी मसाला 100g",price:25,cat:"Masala",icon:"🌶️"},
+{name:"लाल मिर्च पाउडर 100g",price:30,cat:"Masala",icon:"🌶️"},
+{name:"धनिया पाउडर 100g",price:22,cat:"Masala",icon:"🌿"},
+{name:"गरम मसाला 100g",price:60,cat:"Masala",icon:"🌶️"},
+{name:"हल्दी साबुत 250g",price:60,cat:"Masala",icon:"🌿"},
+{name:"जीरा 100g",price:50,cat:"Masala",icon:"🌿"},
+{name:"सौंफ 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"अजवाइन 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"हींग",price:10,cat:"Masala",icon:"🌿"},
+{name:"तेज पत्ता 5g",price:0,cat:"Masala",icon:"🍃"},
+
+{name:"चाय पत्ती 250g",price:80,cat:"Snacks",icon:"🍵"},
+{name:"नमकीन",price:50,cat:"Snacks",icon:"🥨"},
+{name:"चिप्स",price:60,cat:"Snacks",icon:"🍟"},
+{name:"टमाटर सॉस",price:15,cat:"Snacks",icon:"🍅"},
+{name:"नूडल्स",price:15,cat:"Snacks",icon:"🍜"},
+{name:"सोयाबीन बड़ी 250g",price:30,cat:"Snacks",icon:"🫘"},
+{name:"सूखा नारियल 100g",price:50,cat:"Snacks",icon:"🥥"},
+{name:"किशमिश 100g",price:50,cat:"Snacks",icon:"🍇"},
+{name:"काजू 100g",price:100,cat:"Snacks",icon:"🥜"},
+{name:"बादाम 100g",price:16,cat:"Snacks",icon:"🥜"},
+
+{name:"नहाने का साबुन",price:10,cat:"Personal",icon:"🧼"},
+{name:"कपड़े धोने का साबुन",price:10,cat:"Home",icon:"🧼"},
+{name:"टूथपेस्ट",price:10,cat:"Personal",icon:"🪥"},
+{name:"टूथब्रश",price:20,cat:"Personal",icon:"🪥"},
+{name:"शैम्पू",price:5,cat:"Personal",icon:"🧴"},
+{name:"डिटर्जेंट पाउडर 1kg",price:75,cat:"Home",icon:"🧺"},
+{name:"माचिस",price:10,cat:"Home",icon:"🔥"},
+{name:"अगरबत्ती",price:20,cat:"Home",icon:"🪔"},
+{name:"मोमबत्ती",price:10,cat:"Home",icon:"🕯️"},
+{name:"बर्तन धोने वाला बार",price:40,cat:"Home",icon:"🧽"},
+{name:"हैंडवॉश",price:10,cat:"Personal",icon:"🧴"}
+
+];
+
+let cart = {};
+let currentCategory = "All";
+
+function showProducts(){
+
+const box = document.getElementById("products");
+const search = document.getElementById("search").value.toLowerCase();
+
+box.innerHTML = "";
+
+let found = 0;
+
+products.forEach((p,index)=>{
+
+let matchCategory =
+currentCategory === "All" || p.cat === currentCategory;
+
+let matchSearch =
+p.name.toLowerCase().includes(search);
+
+if(matchCategory && matchSearch){
+
+found++;
+
+let quantity = cart[index] || 0;
+
+box.innerHTML += `
+
+<div class="product">
+
+<div class="img">${p.icon}</div>
+
+<h3>${p.name}</h3>
+
+<div class="price">
+₹${p.price === 0 ? "Free" : p.price}
+</div>
+
+${
+quantity === 0
+
+?
+
+`<button class="addbtn" onclick="add(${index})">
+➕ Add
+</button>`
+
+:
+
+`<div class="qty">
+
+<button onclick="minus(${index})">−</button>
+
+<span>${quantity}</span>
+
+<button onclick="add(${index})">+</button>
+
+</div>`
+
 }
+
+</div>
+`;
+
+}
+
+});
+
+document.getElementById("noresult").style.display =
+found === 0 ? "block" : "none";
+
+updateCart();
+
+}
+
+function add(index){
+
+if(!cart[index]) cart[index]=0;
+
+cart[index]++;
+
+showProducts();
+
+}
+
+function minus(index){
+
+if(cart[index]) cart[index]--;
+
+if(cart[index] <= 0)
+delete cart[index];
+
+showProducts();
+
+}
+
+function updateCart(){
+
+let count = 0;
+let total = 0;
+
+Object.keys(cart).forEach(index=>{
+
+let qty = cart[index];
+
+count += qty;
+
+total += products[index].price * qty;
+
+});
+
+document.getElementById("count").innerText = count;
+document.getElementById("total").innerText = total;
+
+}
+
+function filterCategory(category,element){
+
+currentCategory = category;
+
+document.querySelectorAll(".cat")
+.forEach(x=>x.classList.remove("active"));
+
+element.classList.add("active");
+
+showProducts();
+
+}
+
+function searchProducts(){
+
+showProducts();
+
+}
+
 function order(){
-if(cart.length===0){
-alert("Pehle product select karein");
+
+let count = 0;
+let total = 0;
+let message = "🛒 *GROCERY ORDER*%0A%0A";
+
+Object.keys(cart).forEach(index=>{
+
+let qty = cart[index];
+
+let p = products[index];
+
+let itemTotal = p.price * qty;
+
+count += qty;
+total += itemTotal;
+
+message +=
+"• " + p.name +
+" × " + qty +
+" = ₹" + itemTotal +
+"%0A";
+
+});
+
+if(count === 0){
+
+alert("पहले कोई product select करें");
 return;
+
 }
-let msg="🛒 Grocery Order%0A%0A"+cart.map((x,i)=>(i+1)+". "+x).join("%0A");
-window.open("https://wa.me/?text="+msg,"_blank");
+
+message +=
+"%0A━━━━━━━━━━━━%0A" +
+"🧾 *Total Items:* " + count +
+"%0A💰 *Total Amount:* ₹" + total;
+
+message += "%0A%0Aधन्यवाद 🙏";
+
+window.open(
+"https://wa.me/?text=" + message,
+"_blank"
+);
+
 }
+
+showProducts();
+
 </script>
 
 </body>
