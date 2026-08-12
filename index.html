@@ -3,280 +3,498 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grocery Shop</title>
+<title>Gaya Ji Grocery Shop</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f7f4;
-  color:#172018;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f5f7f5;
+ color:#172018;
+}
+
+.top{
+ background:#063b25;
+ color:white;
+ padding:10px 15px;
+ text-align:center;
+ font-size:14px;
 }
 
 header{
-  background:#168b43;
-  color:white;
-  padding:25px 20px;
+ background:white;
+ padding:18px 16px;
+ position:sticky;
+ top:0;
+ z-index:20;
+ box-shadow:0 3px 15px #ddd;
 }
 
-header h1{
-  margin:0;
-  font-size:32px;
+.brand{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
 }
 
-header p{
-  font-size:17px;
+.logo{
+ font-size:25px;
+ font-weight:bold;
+ color:#087c3d;
+}
+
+.logo small{
+ display:block;
+ color:#f47b20;
+ font-size:15px;
+}
+
+.cartIcon{
+ background:#087c3d;
+ color:white;
+ border:0;
+ border-radius:50%;
+ width:48px;
+ height:48px;
+ font-size:22px;
 }
 
 .search{
-  width:100%;
-  padding:15px 18px;
-  border:0;
-  border-radius:30px;
-  font-size:17px;
-  outline:none;
+ margin-top:15px;
+ width:100%;
+ padding:14px 18px;
+ border:1px solid #ddd;
+ border-radius:30px;
+ font-size:16px;
+ outline:none;
 }
 
 .container{
-  padding:20px;
-  padding-bottom:110px;
+ padding:18px;
+ padding-bottom:120px;
+ max-width:1100px;
+ margin:auto;
 }
 
 .hero{
-  background:white;
-  padding:22px;
-  border-radius:22px;
-  margin-bottom:25px;
-  box-shadow:0 3px 10px #ddd;
+ background:linear-gradient(135deg,#087c3d,#16a85a);
+ color:white;
+ padding:25px;
+ border-radius:25px;
+ margin-bottom:22px;
+ box-shadow:0 8px 25px #b9d8c5;
 }
 
-.hero h2{
-  margin-top:0;
+.hero h1{
+ margin:0 0 8px;
+ font-size:28px;
+}
+
+.hero p{
+ margin:5px 0;
+ font-size:16px;
+}
+
+.hero button{
+ margin-top:15px;
+ background:#ffc928;
+ color:#222;
+ border:0;
+ padding:12px 22px;
+ border-radius:15px;
+ font-weight:bold;
+ font-size:16px;
+}
+
+h2{
+ margin-top:25px;
 }
 
 .categories{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  margin-bottom:25px;
+ display:flex;
+ gap:10px;
+ overflow-x:auto;
+ padding-bottom:8px;
 }
 
 .cat{
-  background:white;
-  padding:13px 20px;
-  border-radius:20px;
-  white-space:nowrap;
-  cursor:pointer;
-  box-shadow:0 2px 7px #ddd;
+ background:white;
+ padding:12px 18px;
+ border-radius:18px;
+ white-space:nowrap;
+ box-shadow:0 3px 10px #ddd;
+ cursor:pointer;
 }
 
 .cat.active{
-  background:#168b43;
-  color:white;
+ background:#087c3d;
+ color:white;
 }
 
 .products{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:14px;
 }
 
 .product{
-  background:white;
-  padding:14px;
-  border-radius:20px;
-  box-shadow:0 3px 12px #ddd;
+ background:white;
+ border-radius:20px;
+ padding:13px;
+ box-shadow:0 4px 14px #ddd;
+ transition:.2s;
 }
 
-.product .img{
-  height:100px;
-  background:#eef8ef;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:45px;
+.product:hover{
+ transform:translateY(-3px);
+}
+
+.img{
+ height:105px;
+ border-radius:16px;
+ background:#eef8ef;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:48px;
 }
 
 .product h3{
-  font-size:17px;
-  margin:12px 0 5px;
-  min-height:40px;
+ font-size:16px;
+ min-height:38px;
+ margin:12px 0 5px;
 }
 
 .price{
-  font-size:19px;
-  font-weight:bold;
-  color:#168b43;
-  margin-bottom:10px;
+ color:#087c3d;
+ font-size:19px;
+ font-weight:bold;
+ margin-bottom:10px;
 }
 
-.addbtn{
-  width:100%;
-  padding:11px;
-  border:0;
-  border-radius:12px;
-  background:#168b43;
-  color:white;
-  font-size:15px;
-  cursor:pointer;
+.add{
+ width:100%;
+ border:0;
+ background:#087c3d;
+ color:white;
+ padding:11px;
+ border-radius:12px;
+ font-size:15px;
+ font-weight:bold;
 }
 
 .qty{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#eef8ef;
-  border-radius:12px;
-  overflow:hidden;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:#eaf7ed;
+ border-radius:12px;
+ overflow:hidden;
 }
 
 .qty button{
-  width:38px;
-  height:38px;
-  border:0;
-  background:#168b43;
-  color:white;
-  font-size:22px;
+ width:40px;
+ height:40px;
+ border:0;
+ background:#087c3d;
+ color:white;
+ font-size:22px;
 }
 
 .qty span{
-  font-size:17px;
-  font-weight:bold;
+ font-weight:bold;
 }
 
-.cart{
-  position:fixed;
-  bottom:15px;
-  left:15px;
-  right:15px;
-  background:#101b13;
-  color:white;
-  padding:16px;
-  border-radius:22px;
-  text-align:center;
-  font-size:17px;
-  font-weight:bold;
-  z-index:10;
-  box-shadow:0 4px 15px #999;
+.features{
+ margin-top:30px;
+ background:white;
+ border-radius:20px;
+ padding:18px;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+ box-shadow:0 3px 12px #ddd;
 }
 
-.total{
-  color:#7cff9d;
-  margin-top:5px;
+.feature{
+ text-align:center;
+ font-weight:bold;
+ color:#087c3d;
 }
 
-.noresult{
-  text-align:center;
-  padding:30px;
-  display:none;
+.feature span{
+ display:block;
+ font-size:28px;
+ margin-bottom:5px;
+}
+
+.bottom{
+ position:fixed;
+ bottom:12px;
+ left:12px;
+ right:12px;
+ background:#073b24;
+ color:white;
+ padding:13px;
+ border-radius:20px;
+ z-index:30;
+ box-shadow:0 5px 20px #777;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+.orderBtn{
+ background:#ffc928;
+ border:0;
+ border-radius:14px;
+ padding:12px 16px;
+ font-weight:bold;
+ color:#222;
+}
+
+.overlay{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:#0008;
+ z-index:50;
+}
+
+.cartBox{
+ position:absolute;
+ bottom:0;
+ left:0;
+ right:0;
+ background:white;
+ border-radius:25px 25px 0 0;
+ padding:20px;
+ max-height:90vh;
+ overflow:auto;
+}
+
+.cartBox h2{
+ margin-top:0;
+}
+
+.cartItem{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:12px 0;
+ border-bottom:1px solid #eee;
+}
+
+.cartQty button{
+ border:0;
+ background:#087c3d;
+ color:white;
+ width:32px;
+ height:32px;
+ border-radius:8px;
+}
+
+.form input,
+.form textarea{
+ width:100%;
+ padding:13px;
+ margin:6px 0;
+ border:1px solid #ddd;
+ border-radius:12px;
+ font-size:15px;
+}
+
+.form textarea{
+ height:75px;
+ resize:none;
+}
+
+.whatsapp{
+ width:100%;
+ background:#25D366;
+ color:white;
+ border:0;
+ padding:15px;
+ border-radius:14px;
+ font-size:17px;
+ font-weight:bold;
+ margin-top:10px;
+}
+
+.close{
+ float:right;
+ border:0;
+ background:#eee;
+ border-radius:50%;
+ width:35px;
+ height:35px;
+ font-size:18px;
+}
+
+.empty{
+ text-align:center;
+ padding:25px;
+ color:#777;
 }
 
 @media(min-width:700px){
-  .products{
-    grid-template-columns:repeat(4,1fr);
-  }
+ .products{
+  grid-template-columns:repeat(4,1fr);
+ }
+ .features{
+  grid-template-columns:repeat(4,1fr);
+ }
 }
 </style>
 </head>
 
 <body>
 
+<div class="top">
+📍 Gaya, Bihar &nbsp; | &nbsp; 🚚 Fast Grocery Delivery
+</div>
+
 <header>
+<div class="brand">
+<div class="logo">
+🛒 Gaya Ji
+<small>Grocery Shop</small>
+</div>
 
-<h1>🛒 Grocery Shop</h1>
-
-<p>Aapki daily grocery, ab aasani se online</p>
+<button class="cartIcon" onclick="openCart()">
+🛒
+</button>
+</div>
 
 <input
-class="search"
-id="search"
-placeholder="🔎 Product search karein..."
-oninput="searchProducts()"
+ id="search"
+ class="search"
+ placeholder="🔎 सामान खोजें..."
+ oninput="showProducts()"
 >
-
 </header>
 
 
 <div class="container">
 
 <div class="hero">
-
-<h2>🏠 Ghar baithe grocery order karein</h2>
-
-<p>Product select kijiye aur WhatsApp par order bhejiye.</p>
-
+<h1>घर बैठे किराना मंगाइए 🛒</h1>
+<p>ताजा सामान • सही दाम • आसान WhatsApp Order</p>
+<button onclick="openCart()">🛍️ Cart देखें</button>
 </div>
 
 
-<h2>Categories</h2>
+<h2>📂 Categories</h2>
 
 <div class="categories">
 
-<div class="cat active"
-onclick="filterCategory('All',this)">
-All
-</div>
+<div class="cat active" onclick="filter('All',this)">All</div>
 
-<div class="cat"
-onclick="filterCategory('Anaaj',this)">
-🌾 Anaaj
-</div>
+<div class="cat" onclick="filter('Anaaj',this)">🌾 अनाज</div>
 
-<div class="cat"
-onclick="filterCategory('Dal',this)">
-🥣 Dal
-</div>
+<div class="cat" onclick="filter('Dal',this)">🥣 दाल</div>
 
-<div class="cat"
-onclick="filterCategory('Masala',this)">
-🌶️ Masala
-</div>
+<div class="cat" onclick="filter('Oil',this)">🛢️ तेल</div>
 
-<div class="cat"
-onclick="filterCategory('Oil',this)">
-🛢️ Oil
-</div>
+<div class="cat" onclick="filter('Masala',this)">🌶️ मसाला</div>
 
-<div class="cat"
-onclick="filterCategory('Snacks',this)">
-🍪 Snacks
-</div>
+<div class="cat" onclick="filter('Snacks',this)">🍪 Snacks</div>
 
-<div class="cat"
-onclick="filterCategory('Home',this)">
-🧹 Home
-</div>
+<div class="cat" onclick="filter('Home',this)">🧹 Home</div>
 
-<div class="cat"
-onclick="filterCategory('Personal',this)">
-🧴 Personal
-</div>
+<div class="cat" onclick="filter('Personal',this)">🧴 Personal</div>
 
 </div>
 
 
-<h2>🛍️ Products</h2>
+<h2>🔥 सभी Products</h2>
 
 <div class="products" id="products"></div>
 
-<div class="noresult" id="noresult">
-❌ Product नहीं मिला
+
+<div class="features">
+
+<div class="feature">
+<span>🚚</span>
+Fast Delivery
+</div>
+
+<div class="feature">
+<span>💰</span>
+सही दाम
+</div>
+
+<div class="feature">
+<span>⭐</span>
+Best Quality
+</div>
+
+<div class="feature">
+<span>📱</span>
+Easy WhatsApp Order
 </div>
 
 </div>
 
+</div>
 
-<div class="cart" onclick="order()">
 
-🛒 Cart:
-<span id="count">0</span> item
+<div class="bottom">
 
-<div class="total">
-Total: ₹<span id="total">0</span>
-— WhatsApp Order
+<div>
+🛒 <b><span id="count">0</span> Items</b><br>
+₹<span id="total">0</span>
+</div>
+
+<button class="orderBtn" onclick="openCart()">
+View Cart →
+</button>
+
+</div>
+
+
+<div class="overlay" id="overlay">
+
+<div class="cartBox">
+
+<button class="close" onclick="closeCart()">×</button>
+
+<h2>🛒 आपका Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3>
+Total: ₹<span id="cartTotal">0</span>
+</h3>
+
+
+<div class="form">
+
+<h3>📦 Delivery Details</h3>
+
+<input
+ id="customerName"
+ placeholder="आपका नाम"
+>
+
+<input
+ id="customerMobile"
+ type="tel"
+ placeholder="मोबाइल नंबर"
+>
+
+<textarea
+ id="customerAddress"
+ placeholder="पूरा पता"
+></textarea>
+
+<button class="whatsapp" onclick="sendOrder()">
+📲 WhatsApp पर Order करें
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -284,11 +502,10 @@ Total: ₹<span id="total">0</span>
 
 <script>
 
-const products = [
+const products=[
 
 {name:"आटा 5kg",price:180,cat:"Anaaj",icon:"🌾"},
 {name:"चावल 5kg",price:190,cat:"Anaaj",icon:"🍚"},
-
 {name:"दाल अरहर 1kg",price:130,cat:"Dal",icon:"🥣"},
 {name:"चीनी 1kg",price:60,cat:"Anaaj",icon:"🍚"},
 {name:"Tata Salt 1kg",price:30,cat:"Anaaj",icon:"🧂"},
@@ -298,7 +515,6 @@ const products = [
 {name:"बेसन 1kg",price:100,cat:"Anaaj",icon:"🌾"},
 {name:"सूजी 1kg",price:48,cat:"Anaaj",icon:"🌾"},
 {name:"मैदा 1kg",price:40,cat:"Anaaj",icon:"🌾"},
-
 {name:"चना दाल 1kg",price:100,cat:"Dal",icon:"🥣"},
 {name:"मसूर दाल 1kg",price:88,cat:"Dal",icon:"🥣"},
 {name:"मूंग दाल 1kg",price:110,cat:"Dal",icon:"🥣"},
@@ -311,8 +527,23 @@ const products = [
 {name:"लाल मिर्च पाउडर 100g",price:30,cat:"Masala",icon:"🌶️"},
 {name:"धनिया पाउडर 100g",price:22,cat:"Masala",icon:"🌿"},
 {name:"गरम मसाला 100g",price:60,cat:"Masala",icon:"🌶️"},
+{name:"हल्दी साबुत 250g",price:60,cat:"Masala",icon:"🌿"},
+{name:"जीरा 100g",price:50,cat:"Masala",icon:"🌿"},
+{name:"सौंफ 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"अजवाइन 15g",price:5,cat:"Masala",icon:"🌿"},
+{name:"हींग",price:10,cat:"Masala",icon:"🌿"},
+{name:"तेज पत्ता 5g",price:0,cat:"Masala",icon:"🍃"},
 
 {name:"चाय पत्ती 250g",price:80,cat:"Snacks",icon:"🍵"},
+{name:"नमकीन",price:50,cat:"Snacks",icon:"🥨"},
+{name:"चिप्स",price:60,cat:"Snacks",icon:"🍟"},
+{name:"टमाटर सॉस",price:15,cat:"Snacks",icon:"🍅"},
+{name:"नूडल्स",price:15,cat:"Snacks",icon:"🍜"},
+{name:"सोयाबीन बड़ी 250g",price:30,cat:"Snacks",icon:"🫘"},
+{name:"सूखा नारियल 100g",price:50,cat:"Snacks",icon:"🥥"},
+{name:"किशमिश 100g",price:50,cat:"Snacks",icon:"🍇"},
+{name:"काजू 100g",price:100,cat:"Snacks",icon:"🥜"},
+{name:"बादाम 100g",price:16,cat:"Snacks",icon:"🥜"},
 
 {name:"नहाने का साबुन",price:10,cat:"Personal",icon:"🧼"},
 {name:"कपड़े धोने का साबुन",price:10,cat:"Home",icon:"🧼"},
@@ -324,103 +555,65 @@ const products = [
 {name:"अगरबत्ती",price:20,cat:"Home",icon:"🪔"},
 {name:"मोमबत्ती",price:10,cat:"Home",icon:"🕯️"},
 {name:"बर्तन धोने वाला बार",price:40,cat:"Home",icon:"🧽"},
-{name:"हैंडवॉश",price:10,cat:"Personal",icon:"🧴"},
-
-{name:"नमकीन",price:50,cat:"Snacks",icon:"🥨"},
-{name:"चिप्स",price:60,cat:"Snacks",icon:"🍟"},
-{name:"टमाटर सॉस",price:15,cat:"Snacks",icon:"🍅"},
-{name:"नूडल्स",price:15,cat:"Snacks",icon:"🍜"},
-{name:"सोयाबीन बड़ी 250g",price:30,cat:"Snacks",icon:"🫘"},
-{name:"सूखा नारियल 100g",price:50,cat:"Snacks",icon:"🥥"},
-{name:"किशमिश 100g",price:50,cat:"Snacks",icon:"🍇"},
-{name:"काजू 100g",price:100,cat:"Snacks",icon:"🥜"},
-{name:"बादाम 100g",price:16,cat:"Snacks",icon:"🥜"},
-
-{name:"हल्दी साबुत 250g",price:60,cat:"Masala",icon:"🌿"},
-{name:"जीरा 100g",price:50,cat:"Masala",icon:"🌿"},
-{name:"सौंफ 15g",price:5,cat:"Masala",icon:"🌿"},
-{name:"अजवाइन 15g",price:5,cat:"Masala",icon:"🌿"},
-{name:"हींग",price:10,cat:"Masala",icon:"🌿"},
-{name:"तेज पत्ता 5g",price:0,cat:"Masala",icon:"🍃"}
+{name:"हैंडवॉश",price:10,cat:"Personal",icon:"🧴"}
 
 ];
 
 
-let cart = {};
-let currentCategory = "All";
+let cart={};
+let category="All";
 
 
 function showProducts(){
 
-const box = document.getElementById("products");
+let box=document.getElementById("products");
 
-const search =
-document.getElementById("search").value.toLowerCase();
+let search=document
+.getElementById("search")
+.value.toLowerCase();
 
-box.innerHTML = "";
+box.innerHTML="";
 
-let found = 0;
+products.forEach((p,i)=>{
 
+if(
+(category==="All" || p.cat===category) &&
+p.name.toLowerCase().includes(search)
+){
 
-products.forEach((p,index)=>{
+let q=cart[i]||0;
 
-let matchCategory =
-currentCategory === "All" ||
-p.cat === currentCategory;
-
-let matchSearch =
-p.name.toLowerCase().includes(search);
-
-
-if(matchCategory && matchSearch){
-
-found++;
-
-let quantity = cart[index] || 0;
-
-
-box.innerHTML += `
+box.innerHTML+=`
 
 <div class="product">
 
-<div class="img">
-${p.icon}
-</div>
+<div class="img">${p.icon}</div>
 
-<h3>
-${p.name}
-</h3>
+<h3>${p.name}</h3>
 
 <div class="price">
-${p.price === 0 ? "Free" : "₹" + p.price}
+${p.price===0 ? "FREE" : "₹"+p.price}
 </div>
 
 ${
-quantity === 0
+q===0
 
 ?
 
-`<button
-class="addbtn"
-onclick="add(${index})">
-➕ Add
+`<button class="add"
+onclick="add(${i})">
+🛒 Add to Cart
 </button>`
 
 :
 
 `<div class="qty">
 
-<button onclick="minus(${index})">
-−
-</button>
+<button onclick="minus(${i})">−</button>
 
-<span>
-${quantity}
-</span>
+<span>${q}</span>
 
-<button onclick="add(${index})">
-+
-</button>
+<button onclick="add(${i})">+</button>
 
 </div>`
 
@@ -434,165 +627,231 @@ ${quantity}
 
 });
 
-
-document.getElementById("noresult").style.display =
-found === 0 ? "block" : "none";
-
-
-updateCart();
+update();
 
 }
 
 
-function add(index){
+function add(i){
 
-if(!cart[index])
-cart[index] = 0;
-
-cart[index]++;
+cart[i]=(cart[i]||0)+1;
 
 showProducts();
 
 }
 
 
-function minus(index){
+function minus(i){
 
-if(cart[index])
-cart[index]--;
+cart[i]=(cart[i]||0)-1;
 
-if(cart[index] <= 0)
-delete cart[index];
+if(cart[i]<=0)
+delete cart[i];
 
 showProducts();
 
 }
 
 
-function updateCart(){
+function update(){
 
-let count = 0;
-let total = 0;
+let count=0;
+let total=0;
+
+Object.keys(cart).forEach(i=>{
+
+count+=cart[i];
+
+total+=products[i].price*cart[i];
+
+});
+
+document.getElementById("count").innerText=count;
+
+document.getElementById("total").innerText=total;
+
+}
 
 
-Object.keys(cart).forEach(index=>{
+function filter(c,el){
 
-let qty = cart[index];
+category=c;
 
-count += qty;
+document
+.querySelectorAll(".cat")
+.forEach(x=>x.classList.remove("active"));
 
-total +=
-products[index].price * qty;
+el.classList.add("active");
+
+showProducts();
+
+}
+
+
+function openCart(){
+
+let box=document.getElementById("cartItems");
+
+box.innerHTML="";
+
+let total=0;
+let count=0;
+
+Object.keys(cart).forEach((i,n)=>{
+
+let p=products[i];
+let q=cart[i];
+
+total+=p.price*q;
+count+=q;
+
+box.innerHTML+=`
+
+<div class="cartItem">
+
+<div>
+<b>${n+1}. ${p.name}</b><br>
+₹${p.price} × ${q}
+</div>
+
+<div class="cartQty">
+
+<button onclick="minus(${i});openCart()">−</button>
+
+&nbsp; ${q} &nbsp;
+
+<button onclick="add(${i});openCart()">+</button>
+
+</div>
+
+</div>
+
+`;
 
 });
 
 
-document.getElementById("count").innerText =
-count;
+if(count===0){
 
-document.getElementById("total").innerText =
-total;
-
-}
-
-
-function filterCategory(category,element){
-
-currentCategory = category;
-
-
-document.querySelectorAll(".cat")
-.forEach(x =>
-x.classList.remove("active")
-);
-
-
-element.classList.add("active");
-
-showProducts();
+box.innerHTML=`
+<div class="empty">
+🛒<br><br>
+Cart अभी खाली है।
+</div>
+`;
 
 }
 
 
-function searchProducts(){
+document.getElementById("cartTotal").innerText=total;
 
-showProducts();
+document.getElementById("overlay").style.display="block";
 
 }
 
 
-function order(){
+function closeCart(){
 
-let count = 0;
-let total = 0;
-let itemNo = 1;
+document.getElementById("overlay").style.display="none";
 
-
-let message =
-"🛒 *GROCERY ORDER*%0A%0A";
+}
 
 
-Object.keys(cart).forEach(index=>{
+function sendOrder(){
 
-let qty = cart[index];
+if(Object.keys(cart).length===0){
 
-let p = products[index];
-
-let itemTotal =
-p.price * qty;
-
-
-count += qty;
-
-total += itemTotal;
-
-
-message +=
-
-itemNo +
-". " +
-p.name +
-" × " +
-qty +
-" = ₹" +
-itemTotal +
-"%0A";
-
-
-itemNo++;
-
-});
-
-
-if(count === 0){
-
-alert("पहले कोई product select करें");
+alert("पहले सामान Cart में add करें।");
 
 return;
 
 }
 
 
-message +=
+let name=document
+.getElementById("customerName")
+.value.trim();
 
-"%0A━━━━━━━━━━━━%0A" +
+let mobile=document
+.getElementById("customerMobile")
+.value.trim();
 
-"🧾 *Total Items:* " +
-count +
+let address=document
+.getElementById("customerAddress")
+.value.trim();
 
-"%0A💰 *Total Amount:* ₹" +
-total +
 
-"%0A%0Aधन्यवाद 🙏";
+if(!name){
+
+alert("अपना नाम डालें।");
+
+return;
+
+}
+
+if(!mobile){
+
+alert("मोबाइल नंबर डालें।");
+
+return;
+
+}
+
+if(!address){
+
+alert("पूरा पता डालें।");
+
+return;
+
+}
+
+
+let message="🛒 *GAYA JI GROCERY SHOP*%0A";
+message+="━━━━━━━━━━━━%0A";
+
+message+="👤 *नाम:* "+encodeURIComponent(name)+"%0A";
+
+message+="📱 *मोबाइल:* "+encodeURIComponent(mobile)+"%0A";
+
+message+="🏠 *पता:* "+encodeURIComponent(address)+"%0A";
+
+message+="━━━━━━━━━━━━%0A%0A";
+
+let total=0;
+let no=1;
+
+
+Object.keys(cart).forEach(i=>{
+
+let p=products[i];
+let q=cart[i];
+
+let amount=p.price*q;
+
+total+=amount;
+
+message+=
+no+". "+
+encodeURIComponent(p.name)+
+" × "+q+
+" = ₹"+amount+
+"%0A";
+
+no++;
+
+});
+
+
+message+="%0A━━━━━━━━━━━━%0A";
+
+message+="💰 *TOTAL: ₹"+total+"*%0A";
+
+message+="%0Aधन्यवाद 🙏";
 
 
 window.open(
-
-"https://wa.me/919852568955?text=" +
-message,
-
+"https://wa.me/919852568955?text="+message,
 "_blank"
-
 );
 
 }
